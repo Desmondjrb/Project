@@ -80,13 +80,39 @@
         });
     </script>
     <script>
-      document.addEventListener("DOMContentLoaded", function(){
-        fetch('products.json')
-        .then((response) => response.json() )
-        .then((data) => {
-          console.log(data)
-        })
-      })
+     document.addEventListener("DOMContentLoaded", function () {
+       const productList=document.querySelector("#product-list");
+       let productsData=[];
+       let productHTML="";
+       fetch('products.json')
+       .then((response) => response.json())
+       .then((data) => {
+         productsData = data.products;
+         data.products.forEach((product)=>{
+           productHTML +=
+           `<div class="col-md-4">
+         <div class="card mb-4">
+             <img src="https://placehold.co/100" class="card-img-top" alt="Product 1">
+             <div class="card-body">
+                 <h5 class="card-title">${product.name}</h5>
+                 <p class="card-text">${product.price}</p>
+                 <p class="card-text">${product.description}</p>
+                 <button class="btn btn-primary add-to-cart" data-id="${product.id}">Add to Cart</button>
+             </div>
+         </div>
+     </div>`;
+       });
+       productList.innerHTML = productHTML;
+       
+       document.querySelectorAll('.add-to-cart').forEach(button) => .{
+        button.addEventListener('click'. addToCart)
+       }
+     });
+     
+   });
+
+   
+
     </script>
   </body>
 </html>
