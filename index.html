@@ -122,7 +122,8 @@
        const cartList = document.getElementById('cart-list');
        let cartItem = '';
        cart.forEach((product) => {
-         cartItem +=`<p>${product.name}</p>`;
+         cartItem +=`<p>${product.name}</p>`
+         ;
        });
        cartList.innerHTML = cartItem;
      }
