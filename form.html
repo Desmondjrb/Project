@@ -10,7 +10,7 @@
      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
      crossorigin="anonymous"
    />
-   <link rel="stylesheet" href="styles.css">
+   <link rel="stylesheet" href="styles.css" />
  </head>
  <body>
    <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -43,14 +43,14 @@
 
 
    <div class="container mt-5">
-   <form action="checkout.html" method="get"> 
-
-    <label for="firstName">first name</label>
-    <input type="text" name="firstName">
-    <button type="submit">submit</button>
-   </form>
+     <form action="checkout.html" method="get">
+       <label for="firstName">First Name</label>
+       <input type="text" name="firstName" value="" /><br />
+       <label for="lastName">Last Name</label>
+       <input type="text" name="lastName" value="" /><br />
+       <button type="submit">Submit</button>
+       </form>
    </div>
-
 
 
    <footer class="bg-light text-center py-3">
@@ -63,16 +63,15 @@
    ></script>
    <script>
      document.addEventListener("DOMContentLoaded", function () {
-       const productList=document.querySelector("#product-list");
-       let productsData=[];
-       let productHTML="";
-       fetch('products.json')
-       .then((response) => response.json())
-       .then((data) => {
-         productsData = data.products;
-         data.products.forEach((product)=>{
-           productHTML +=
-           `<div class="col-md-4">
+       const productList = document.querySelector("#product-list");
+       let productsData = [];
+       let productHTML = "";
+       fetch("products.json")
+         .then((response) => response.json())
+         .then((data) => {
+           productsData = data.products;
+           data.products.forEach((product) => {
+             productHTML += `<div class="col-md-4">
          <div class="card mb-4">
              <img src="https://placehold.co/100" class="card-img-top" alt="Product 1">
              <div class="card-body">
@@ -83,35 +82,56 @@
              </div>
          </div>
      </div>`;
-       });
-       productList.innerHTML = productHTML;
-       document.querySelectorAll(".add-to-cart").forEach((button) => {
-         button.addEventListener("click" , addToCart);
-       });
-       const cart= [];
-      
-     function addToCart(event){
-       console.log(event.target.getAttribute('data-id'));
-      const productId = event.target.getAttribute('data-id');
-       const product = productsData[productId-1];
-       let cartItem = {
-         name:product.name,
-       };
-       cart.push(cartItem);
-       console.log(cart);
-       renderCart();
-     } 
-     function renderCart(){
-       const cartList = document.getElementById('cart-list');
-       let cartItem = '';
-       cart.forEach((product) => {
-         cartItem +=`<p>${product.name}</p>`
-         ;
-       });
-       cartList.innerHTML = cartItem;
-     }
-       })
+           });
+           productList.innerHTML = productHTML;
+           document.querySelectorAll(".add-to-cart").forEach((button) => {
+             button.addEventListener("click", addToCart);
+           });
+           const cart = [];
+          
+           function addToCart(event) {
+             console.log(event.target.getAttribute("data-id"));
+             const productId = event.target.getAttribute("data-id");
+             const product = productsData[productId - 1];
+             let cartItem = {
+               id:product.id,
+               name: product.name,
+               price: product.price
+             };
+             cart.push(cartItem);
+             console.log(cart);
+             renderCart();
+           }
+           function renderCart() {
+             const cartList = document.getElementById("cart-list");
+             let cartItem = "";
+             cart.forEach((product) => {
+               cartItem += `<div class="col-md-4">
+         <div class="card mb-4">
+             <div class="card-body">
+                 <h5 class="card-title">${product.name}</h5>
+                 <p class="card-text">${product.price}</p>
+                 <button class="btn btn-danger remove-from-cart" data-id="${product.id}">
+                   remove
+                   </button>
+             </div>
+         </div>
+     </div>
+           `;
+             });
+             cartList.innerHTML = cartItem;
+             document.querySelectorAll('.remove-from-cart').forEach((button) => {
+               button.addEventListener('click' ,removeFromCart);
+             })
+           }
+           function removeFromCart(event){
+            
+           }
+         });
      });
    </script>
  </body>
 </html>
+
+
+
