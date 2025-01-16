@@ -42,11 +42,12 @@
 
 
    <div class="container mt-5">
-     <h1>Checkout</h1>
+    <form id="checkout-form" action="confirmation.html" method="get">
+<h1>Checkout</h1>
      <div id="cart-summary">
        <!-- Cart summary will be dynamically inserted here -->
      </div>
-     <form id="checkout-form">
+     
        <h2>Login</h2>
        <div class="form-group">
          <label for="email"
@@ -172,27 +173,54 @@
        </div>
        <div id="error-message" class="text-danger"></div>
        <button type="submit" class="btn btn-primary">Submit</button>
-     </form>
+
+    </form>
+     
+   
    </div>
 
 
    <script>
+
+
      document.addEventListener("DOMContentLoaded",function () {
-       const query = new URLSearchParams(window.location.search);
-       console.log(Array.from(query.entries()));
-       const cart= Array.from(query.entries());
-       function renderCart(){
-         const cartList= document.getElementById('cart-summary');
-         let cartItem='';
-         for(let [key, value] of cart){
-           console.log(key,value);
-           cartItem += `<p> ${key}${value}</p>
-          
-           `;
-         }
-         cartList.innerHTML = cartItem;
-       }
-       renderCart();
+    const urlParams = new URLSearchParams(window.location.search);
+    const cartSummary = document.getElementById('cart-summary');
+
+    const ids = urlParams.getAll('id');
+    const names = urlParams.getAll('name');
+    const prices = urlParams.getAll('price');
+
+
+    const cartItems = [];
+    let cartItem = '';
+    for (let i = 0; i < ids.length; i++) {
+      cartItem += `
+      <div class="cart-item">
+        <h5>${names[i]}</h5>
+        <p>${parseFloat(prices[i]).toFixed(2)}</p>
+        <input type="hidden" name="id" value="${ids[i]}" />
+        <input type="hidden" name="name" value="${names[i]}" />
+        <input type="hidden" name="price" value="${prices[i]}" />
+      </div>
+      `
+    }
+
+    cartSummary.innerHTML = cartItem
+
+    document.querySelector('#checkout-form').addEventListener('submit', submitCart);
+
+    function submitCart(event){
+      event.preventDefault();
+      console.log('submitted');
+      fetch('users.json')
+      .then(response => response.json())
+      .then(data => {
+        data.forEach(user => {
+          console.log(user)
+        })
+      })
+    }
      });
    </script>
  </body>
