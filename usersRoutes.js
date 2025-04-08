@@ -7,6 +7,15 @@ const router = express.Router();
 
 // TODO: Create POST route for user registration (/api/users/register)
 
+router.post("/user/register", async (req, res) => {
+  const user = new userModel(req.body);
+  try {
+    const newUser = await user.save();
+    res.status(201).json(newUser);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
 
 // 1. Check if a user with the given email already exists
 // 2. If not, create a new user with the request body data
@@ -19,3 +28,4 @@ const router = express.Router();
 // 4. If authentication fails, return appropriate error message
 
 // TODO: Export the router
+export { router as userRouter };

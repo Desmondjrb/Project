@@ -1,7 +1,7 @@
+import * as dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
-import * as dotenv from "dotenv";
-
+import { userRouter } from "./usersRoutes.js";
 
 // Load environment variables
 dotenv.config();
@@ -10,12 +10,13 @@ dotenv.config();
 
 // Initialize express
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 
 
 // Middleware
 app.use(express.json());
 app.use(express.static("public"));
+app.use("/api", userRouter);
 
 // MongoDB Connection
 mongoose
