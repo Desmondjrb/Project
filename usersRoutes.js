@@ -26,6 +26,19 @@ router.post("/user/register", async (req, res) => {
 // 2. Check if the password matches
 // 3. If authentication successful, return user info (without password)
 // 4. If authentication fails, return appropriate error message
+// curl -X GET http://localhost:3000/api/user/login \-H 'Content-Type: application/json' \-d '{"firstName":"ea314","lastName":"2114sf"}'
 
+router.get("/user/login", async (req, res) => {
+  const user = new userModel(req.body);
+  try {
+    const query = await userModel.findOne({
+      firtsName: user.firstName,
+      lastName: user.lastName,
+    });
+    res.status(201).json(query);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
 // TODO: Export the router
 export { router as userRouter };
