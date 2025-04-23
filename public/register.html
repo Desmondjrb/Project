@@ -14,25 +14,25 @@
 </head>
 <body>
     <!-- TODO: Create a navigation bar that links to your homepage -->
+   <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="index.html">products</a>
+        <a class="nav-link" href="checkout.html">checkout</a>
+        <a class="nav-link" href="confirmation.html">confirmation</a>
+        <a class="nav-link" href="register.html">current</a>
+      </div>
+    </div>
+  </div>
+</nav>
 
 
-    <div class="container">
-        <h1>Create an Account</h1>
-        
-
-        <form action="" method="get" class="form-example">
-  <div class="form-example">
-    <label for="name">Enter your name: </label>
-    <input type="text" name="name" id="name" required />
-  </div>
-  <div class="form-example">
-    <label for="email">Enter your email: </label>
-    <input type="email" name="email" id="email" required />
-  </div>
-  <div class="form-example">
-    <input type="submit" value="Subscribe!" />
-  </div>
-</form>
+    
         <!-- TODO: Create a registration form with the following fields:
 
         
@@ -46,7 +46,31 @@
              - State
              - Zip Code
              - Submit Button -->
+        <div class="container">
+        <h1>Create an Account</h1>
         
+
+        <form action="" method="get" class="form-example">
+  <div class="form-example">
+    <label for="name">Enter your first name: </label>
+    <input type="text" name="name" id="name" required />
+  </div>
+  <div class="form-example">
+    <label for="name">Enter your last name: </label>
+    <input type="text" name="name" id="name" required />
+  </div>
+  <div class="form-example">
+    <label for="email">Enter your email: </label>
+    <input type="email" name="email" id="email" required />
+  </div>
+  <div>
+    <label for="pwd">Password:</label><br>
+    <input type="password" id="pwd" name="pwd">
+  </div>
+  <div class="form-example">
+    <input type="submit" value="Subscribe!" />
+  </div>
+</form>
         <!-- TODO: Add a link to the login page for existing users -->
     </div>
     
