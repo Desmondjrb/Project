@@ -40,5 +40,6 @@ router.get("/user/login", async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 });
+
 // TODO: Export the router
 export { router as userRouter };
