@@ -1,22 +1,22 @@
 let form = document.getElementById("regist")
 let firstName = document.getElementById("firstName")
-
+let lastName = document.getElementById("lastName")
 form.addEventListener("submit", async (e) =>{
     e.preventDefault();
     
       const formTitle = firstName.value.trim();
-      const lastName = lastName.value.trim();
+      const formName = lastName.value.trim();
       if (!formTitle) {
         alert("Please enter a todo!");
         return;
       }
 
-      const newUser = { firstName: formTitle , lastName: lastName };
+      const newUser = { firstName: formTitle , lastName: formName };
       console.log(newUser)
 
       try {
         
-        const response = await fetch("/user/register", {
+        const response = await fetch("api/user/register", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -34,5 +34,6 @@ form.addEventListener("submit", async (e) =>{
      
 
        firstName.value = ""; 
+       lastName.value = ""
        console.log("this works")
 })
