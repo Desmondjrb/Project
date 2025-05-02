@@ -28,8 +28,14 @@ try {
   }
   const json = await response.json();
   console.log(json);
+  localStorage.setItem("firstname", json.firstName);
+  window.location.replace(
+    "/index.html"
+  );
 } catch (error) {
   console.error(error.message);
 }
-     
+
+
+
 } )
