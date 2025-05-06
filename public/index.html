@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,30 +10,40 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <style>
-    
-    </style>
+    <style></style>
   </head>
   <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-
-        <a class="nav-link active" aria-current="page" href="index.html">current</a>
-        <a class="nav-link" href="checkout.html">checkout</a>
-        <a class="nav-link" href="confirmation.html">confirmation</a>
-        <a class="nav-link hide" id = "register" href="register.html">register</a>
-        <a class="nav-link hide" id ="logo" href="login.html">login</a>
-           <a class="nav-link " id = "login" href=""></a>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="index.html"
+              >current</a
+            >
+            <a class="nav-link" href="checkout.html">checkout</a>
+            <a class="nav-link" href="confirmation.html">confirmation</a>
+            <a class="nav-link hide" id="register" href="register.html"
+              >register</a
+            >
+            <a class="nav-link hide" id="logo" href="login.html">login</a>
+            <a class="nav-link" id="login" href=""></a>
+            <button id="logout">Logout</button>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</nav>
+    </nav>
 
     <div class="container mt-5">
       <h1>Products</h1>
@@ -61,23 +71,33 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script>
+    <script defer>
       document.addEventListener("DOMContentLoaded", function () {
-        const name = localStorage.getItem("firstname")
-        let login = document.getElementById("login")
-        let regist = document.getElementById("register")
-        let logo = document.getElementById("logo")
-        if(name){
-          console.log(name)
-          login.innerHTML += `Welcome ${name}`
-          regist.style.display = 'none';
-          logo.style.display = 'none';
-        } else {
-           regist.style.display = 'none';
-          logo.style.display = 'none';
+        const name = localStorage.getItem("firstname");
+        let login = document.getElementById("login");
+        let regist = document.getElementById("register");
+        let logo = document.getElementById("logo");
+        let logOut = document.getElementById("logout")
+
+        loggedIn();
+        function loggedIn() {
+          if (name) {
+            console.log(name);
+            login.innerHTML = `Welcome ${name}`;
+            regist.style.display = "none";
+            logo.style.display = "none";
+          } else {
+            regist.style.display = "show";
+            logo.style.display = "show";
+            logOut.style.display = "none"
+          }
         }
-
-
+        logOut.addEventListener("click", log())
+          
+        function log(){
+          localStorage.removeItem("firstname");
+          loggedIn();
+          }
 
         const productList = document.querySelector("#product-list");
         let productsData = [];
@@ -137,14 +157,18 @@
                 </div>`;
               });
               cartList.innerHTML = cartItem;
-              document.querySelectorAll(".remove-from-cart").forEach((button) => {
-                button.addEventListener("click", removeFromCart);
-              });
+              document
+                .querySelectorAll(".remove-from-cart")
+                .forEach((button) => {
+                  button.addEventListener("click", removeFromCart);
+                });
             }
 
             function removeFromCart(event) {
               const productId = event.target.getAttribute("data-id");
-              const productIndex = cart.findIndex((product) => product.id == productId);
+              const productIndex = cart.findIndex(
+                (product) => product.id == productId
+              );
               cart.splice(productIndex, 1);
               renderCart();
             }
