@@ -73,31 +73,35 @@
     ></script>
     <script defer>
       document.addEventListener("DOMContentLoaded", function () {
-        const name = localStorage.getItem("firstname");
         let login = document.getElementById("login");
         let regist = document.getElementById("register");
         let logo = document.getElementById("logo");
-        let logOut = document.getElementById("logout")
+        let logOut = document.getElementById("logout");
+        let name = localStorage.getItem("firstname");
 
         loggedIn();
         function loggedIn() {
+          console.log(name);
           if (name) {
-            console.log(name);
             login.innerHTML = `Welcome ${name}`;
             regist.style.display = "none";
             logo.style.display = "none";
           } else {
             regist.style.display = "show";
             logo.style.display = "show";
-            logOut.style.display = "none"
+            logOut.style.display = "none";
           }
         }
-        logOut.addEventListener("click", log())
-          
-        function log(){
-          localStorage.removeItem("firstname");
-          loggedIn();
+        logOut.addEventListener("click", log);
+
+        function log() {
+          console.log("logout");
+          if (name) {
+            localStorage.removeItem("firstname");
+            loggedIn();
+            window.location.replace("/index.html");
           }
+        }
 
         const productList = document.querySelector("#product-list");
         let productsData = [];

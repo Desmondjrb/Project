@@ -32,11 +32,13 @@ form.addEventListener("submit", async (e) =>{
           throw new Error(`Response status: ${response.status}`);
         }
         const json = await response.json();
+        localStorage.setItem("firstname", json.firstName);
+        window.location.replace("/index.html");
         console.log(json);
       } catch (error) {
         console.error(error.message);
       }
-     
+
 
        firstName.value = ""; 
        lastName.value = ""
