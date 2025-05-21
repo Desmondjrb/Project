@@ -1,67 +1,67 @@
-{
-  "products": [
-    {
-      "id": 1,
-      "name": "Product 1",
-      "description": "Description for product 1",
-      "price": 5.99,
-      "image": "https://assets.epicurious.com/photos/5c745a108918ee7ab68daf79/master/pass/Smashburger-recipe-120219.jpg"
-    },
-    {
-      "id": 2,
-      "name": "Product 2",
-      "description": "Description for product 2",
-      "price": 8.99,
-      "image": "https://www.simplyrecipes.com/thmb/pjYMLcsKHkr8D8tYixmaFNxppPw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__09__easy-pepperoni-pizza-lead-3-8f256746d649404baa36a44d271329bc.jpg"
-    },
-    {
-      "id": 3,
-      "name": "Product 3",
-      "description": "Description for product 3",
-      "price": 9.99,
-      "image": "https://i2.wp.com/hipfoodiemom.com/wp-content/uploads/2020/04/IMG_9525-2.jpg"
-    },
-    {
-      "id": 4,
-      "name": "Product 4",
-      "description": "Description for product 4",
-      "price": 12.99,
-      "image": "https://i.ytimg.com/vi/-iqqD3XtoeE/hqdefault.jpg"
-    },
-    {
-      "id": 5,
-      "name": "Product 5",
-      "description": "Description for product 5",
-      "price": 19.99,
-      "image": "https://mission-food.com/wp-content/uploads/2021/07/Trinidad-Macaroni-Pie-Featured.jpg"
-    },
-    {
-      "id": 6,
-      "name": "Product 6",
-      "description": "Description for product 6",
-      "price": 40.99,
-      "image": "https://aileencooks.com/wp-content/uploads/2019/12/air-fryer-frozen-chicken-nuggets-3.jpg"
-    },
-    {
-      "id": 7,
-      "name": "Product 7",
-      "description": "Description for product 7",
-      "price": 100.99,
-      "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2018/5/16/0/FNK_WATERMELON-PIG-H_s4x3.jpg.rend.hgtvcom.1280.720.suffix/1526483893553.webp"
-    },
-    {
-      "id": 8,
-      "name": "Product 8",
-      "description": "Description for product 8",
-      "price": 200.99,
-      "image": "https://thegirlinspired.com/wp-content/uploads/2024/11/southern-fried-chicken-recipe-card.jpg"
-    },
-    {
-      "id": 9,
-      "name": "Product 9",
-      "description": "Description for product 9",
-      "price": 1000.99,
-      "image": "https://i.pinimg.com/736x/a3/0f/0b/a30f0bf788bec69a5b71b9403056592f.jpg"
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "name": "Product 1",
+    "description": "Description for product 1",
+    "price": 5.99,
+    "image": "https://assets.epicurious.com/photos/5c745a108918ee7ab68daf79/master/pass/Smashburger-recipe-120219.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Product 2",
+    "description": "Description for product 2",
+    "price": 8.99,
+    "image": "https://www.simplyrecipes.com/thmb/pjYMLcsKHkr8D8tYixmaFNxppPw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__09__easy-pepperoni-pizza-lead-3-8f256746d649404baa36a44d271329bc.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Product 3",
+    "description": "Description for product 3",
+    "price": 9.99,
+    "image": "https://i2.wp.com/hipfoodiemom.com/wp-content/uploads/2020/04/IMG_9525-2.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Product 4",
+    "description": "Description for product 4",
+    "price": 12.99,
+    "image": "https://i.ytimg.com/vi/-iqqD3XtoeE/hqdefault.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Product 5",
+    "description": "Description for product 5",
+    "price": 19.99,
+    "image": "https://mission-food.com/wp-content/uploads/2021/07/Trinidad-Macaroni-Pie-Featured.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Product 6",
+    "description": "Description for product 6",
+    "price": 40.99,
+    "image": "https://aileencooks.com/wp-content/uploads/2019/12/air-fryer-frozen-chicken-nuggets-3.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Product 7",
+    "description": "Description for product 7",
+    "price": 100.99,
+    "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2018/5/16/0/FNK_WATERMELON-PIG-H_s4x3.jpg.rend.hgtvcom.1280.720.suffix/1526483893553.webp"
+  },
+  {
+    "id": 8,
+    "name": "Product 8",
+    "description": "Description for product 8",
+    "price": 200.99,
+    "image": "https://thegirlinspired.com/wp-content/uploads/2024/11/southern-fried-chicken-recipe-card.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Product 9",
+    "description": "Description for product 9",
+    "price": 1000.99,
+    "image": "https://i.pinimg.com/736x/a3/0f/0b/a30f0bf788bec69a5b71b9403056592f.jpg"
+  }
+]
+
+
