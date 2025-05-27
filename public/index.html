@@ -106,11 +106,11 @@
         const productList = document.querySelector("#product-list");
         let productsData = [];
         let productHTML = "";
-        fetch("products.json")
+        fetch("api/user/products")
           .then((response) => response.json())
           .then((data) => {
-            productsData = data.products;
-            data.products.forEach((product) => {
+            productsData = data;
+            data.forEach((product) => {
               productHTML += `<div class="col-md-4">
                 <div class="card mb-4 product-card">
                   <img src="${product.image}" alt="${product.name}">
