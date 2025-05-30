@@ -1,6 +1,7 @@
 // TODO: Import express and your User model
 import { userModel } from "./user.js";
 import { productModel } from "./products.js";
+import { cartModel } from "./cart.js";
 import express from "express";
 const router = express.Router();
 
@@ -50,6 +51,10 @@ router.get("/user/products", async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 });
+
+
+
+
 
 // TODO: Export the router
 export { router as userRouter };
